@@ -1,0 +1,226 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://GUI/fontes/pixelart.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://sprites/up_1.png" type="Texture" id=2]
+[ext_resource path="res://sprites/up_0.png" type="Texture" id=3]
+[ext_resource path="res://sprites/up_3.png" type="Texture" id=4]
+[ext_resource path="res://sprites/up_2.png" type="Texture" id=5]
+[ext_resource path="res://GUI/scripts/GUI_upgrades.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 6
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.466667, 0.247059, 0.215686, 1 )
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.466667, 0.247059, 0.215686, 1 )
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.466667, 0.247059, 0.215686, 1 )
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.466667, 0.247059, 0.215686, 1 )
+expand_margin_left = 3.0
+expand_margin_right = 3.0
+expand_margin_top = 3.0
+expand_margin_bottom = 3.0
+
+[node name="GUI_upgrades" type="CanvasLayer"]
+pause_mode = 2
+scale = Vector2( 0.5, 0.5 )
+transform = Transform2D( 0.5, 0, 0, 0.5, 0, 0 )
+script = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -178.5
+margin_top = -100.0
+margin_right = 178.5
+margin_bottom = 100.0
+color = Color( 0.592157, 0.403922, 0.286275, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.053
+anchor_top = 0.065
+anchor_right = 0.947
+anchor_bottom = 0.935
+margin_left = 0.147999
+margin_top = -0.0400009
+margin_right = -0.14801
+margin_bottom = 0.0399933
+custom_constants/separation = 12
+
+[node name="HB_up_0" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 336.0
+margin_bottom = 38.0
+
+[node name="up_0_button" type="Button" parent="VBoxContainer/HB_up_0"]
+margin_right = 44.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 2 )
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HB_up_0/up_0_button"]
+anchor_left = 0.057
+anchor_top = 0.921
+anchor_right = 0.943
+anchor_bottom = 1.105
+margin_left = -0.00800014
+margin_top = 0.0019989
+margin_right = 0.00799942
+margin_bottom = 0.00999832
+custom_fonts/font = SubResource( 3 )
+text = "300000 FSS"
+
+[node name="Label" type="Label" parent="VBoxContainer/HB_up_0"]
+margin_left = 48.0
+margin_right = 336.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 4 )
+text = "Este upgrade permite q o player deixe um rastro de fogo
+por onde passr.
+Dano 15
+cooldown 6s"
+
+[node name="HB_up_1" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 50.0
+margin_right = 336.0
+margin_bottom = 88.0
+
+[node name="up_1_button" type="Button" parent="VBoxContainer/HB_up_1"]
+margin_right = 44.0
+margin_bottom = 38.0
+icon = ExtResource( 5 )
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HB_up_1/up_1_button"]
+anchor_left = 0.057
+anchor_top = 0.921
+anchor_right = 0.943
+anchor_bottom = 1.105
+margin_left = -0.00800014
+margin_top = 0.0019989
+margin_right = 0.00799942
+margin_bottom = 0.00999832
+custom_fonts/font = SubResource( 3 )
+text = "100000 FSS"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HB_up_1"]
+margin_left = 48.0
+margin_right = 327.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 5 )
+text = "Este upgrade aumenta o aumenta em .2x o dano da pisada 
+para cada inimigo morto com maximo de 3x. Ao receber 
+dano 
+o multiplicador é zerado."
+
+[node name="HB_up_2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 100.0
+margin_right = 336.0
+margin_bottom = 138.0
+custom_constants/separation = 4
+
+[node name="up_2_button" type="Button" parent="VBoxContainer/HB_up_2"]
+margin_right = 44.0
+margin_bottom = 38.0
+icon = ExtResource( 4 )
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HB_up_2/up_2_button"]
+anchor_left = 0.148
+anchor_top = 0.921
+anchor_right = 0.852
+anchor_bottom = 1.079
+margin_left = -0.0120001
+margin_top = 0.0019989
+margin_right = 0.0119972
+margin_bottom = -0.0019989
+custom_fonts/font = SubResource( 3 )
+text = "5000 FSS"
+
+[node name="Label" type="Label" parent="VBoxContainer/HB_up_2"]
+margin_left = 48.0
+margin_top = 15.0
+margin_right = 226.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 6 )
+text = "Adiciona uma vida extra ao player."
+
+[node name="HB_up_3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 150.0
+margin_right = 336.0
+margin_bottom = 188.0
+
+[node name="up_3_button" type="Button" parent="VBoxContainer/HB_up_3"]
+margin_right = 44.0
+margin_bottom = 38.0
+icon = ExtResource( 3 )
+flat = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HB_up_3/up_3_button"]
+anchor_left = 0.011
+anchor_top = 0.921
+anchor_right = 0.989
+anchor_bottom = 1.105
+margin_left = 0.016
+margin_top = 0.0019989
+margin_right = -0.0160027
+margin_bottom = 0.00999832
+custom_fonts/font = SubResource( 3 )
+text = "1000000 FSS"
+
+[node name="Label" type="Label" parent="VBoxContainer/HB_up_3"]
+margin_left = 48.0
+margin_top = 5.0
+margin_right = 336.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/normal = SubResource( 7 )
+text = "O player recebe um mchado de uma terra distante ai, nao
+sei se conhece. eu entendi a referencia...
+Dano multiplicado pelos pontos"
+
+[connection signal="mouse_entered" from="VBoxContainer/HB_up_0/up_0_button" to="." method="_on_up_0_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HB_up_0/up_0_button" to="." method="_on_up_0_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/HB_up_0/up_0_button" to="." method="_on_up_0_button_pressed"]
+[connection signal="button_down" from="VBoxContainer/HB_up_1/up_1_button" to="." method="_on_up_1_button_button_down"]
+[connection signal="mouse_entered" from="VBoxContainer/HB_up_1/up_1_button" to="." method="_on_up_1_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HB_up_1/up_1_button" to="." method="_on_up_1_button_mouse_exited"]
+[connection signal="button_down" from="VBoxContainer/HB_up_2/up_2_button" to="." method="_on_up_2_button_button_down"]
+[connection signal="mouse_entered" from="VBoxContainer/HB_up_2/up_2_button" to="." method="_on_up_2_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HB_up_2/up_2_button" to="." method="_on_up_2_button_mouse_exited"]
+[connection signal="button_down" from="VBoxContainer/HB_up_3/up_3_button" to="." method="_on_up_3_button_button_down"]
+[connection signal="mouse_entered" from="VBoxContainer/HB_up_3/up_3_button" to="." method="_on_up_3_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/HB_up_3/up_3_button" to="." method="_on_up_3_button_mouse_exited"]

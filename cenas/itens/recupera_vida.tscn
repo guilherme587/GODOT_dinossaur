@@ -1,0 +1,197 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://sprites/upgrade.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Area2D
+
+func _ready():
+	$anim.play(\"flutuando\");
+	$anim.set_speed_scale(.25)
+
+func _physics_process(delta):
+	if $tocandoNo_chao.is_colliding():
+		self.global_position[1] -= 1
+
+func _on_recupera_vida_body_entered(body):
+	var vida = 100
+	if body.name == \"player\":
+		if Global.vida >= 300:
+			Global.pontos += vida
+			queue_free();
+			return 0
+		Global.vida += vida;
+		$anim.play(\"coletado\")
+		$anim.set_speed_scale(2)
+		yield($anim, \"animation_finished\")
+		queue_free()
+"
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Upgrade:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Upgrade:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Upgrade:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Upgrade:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Upgrade:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.631373 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "coletado"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Upgrade:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Upgrade:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -12 ), Vector2( 0, -24 ), Vector2( 0, -32 ), Vector2( 0, -24 ), Vector2( 0, -12 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Upgrade:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.631373 ), Color( 1, 1, 1, 0.329412 ), Color( 1, 1, 1, 0.0862745 ), Color( 1, 1, 1, 0.0352941 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "flutuando"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Upgrade:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Upgrade:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 12 ), Vector2( 0, -12 ), Vector2( 0, 12 ), Vector2( 0, -12 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Upgrade:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="recupera_vida" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+script = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Upgrade" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.631373 )
+texture = ExtResource( 2 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/coletado = SubResource( 3 )
+anims/flutuando = SubResource( 4 )
+
+[node name="tocandoNo_chao" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 29 )
+collision_mask = 512
+
+[connection signal="body_entered" from="." to="." method="_on_recupera_vida_body_entered"]

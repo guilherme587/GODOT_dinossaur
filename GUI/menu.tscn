@@ -1,0 +1,158 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://GUI/scripts/menu.gd" type="Script" id=1]
+[ext_resource path="res://GUI/sprites_GUI/placa.png" type="Texture" id=2]
+[ext_resource path="res://GUI/fontes/pixelart.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fases_cenas/background.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+
+[node name="background" parent="." instance=ExtResource( 4 )]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 0.083
+anchor_right = 0.997
+anchor_bottom = 0.278
+margin_left = -1.0
+margin_top = 0.0719986
+margin_right = 0.151978
+margin_bottom = -0.0480042
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_right = 324.0
+margin_bottom = 42.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 324.0
+margin_bottom = 42.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = -6
+custom_constants/shadow_offset_y = 6
+custom_fonts/font = SubResource( 1 )
+text = "DINOSSAUR"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.003
+anchor_top = 0.361
+anchor_right = 0.367
+anchor_bottom = 0.926
+margin_left = -0.152
+margin_top = 0.0239944
+margin_right = 0.071991
+margin_bottom = -0.0160065
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 140.0
+margin_bottom = 122.0
+
+[node name="start" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_right = 140.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 18 )
+custom_fonts/font = SubResource( 2 )
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/start"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.5
+margin_top = -10.5
+margin_right = 38.5
+margin_bottom = 10.5
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = -3
+custom_constants/shadow_offset_y = 3
+custom_fonts/font = SubResource( 5 )
+text = "START"
+
+[node name="options" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 42.0
+margin_right = 140.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 0, 19 )
+custom_fonts/font = SubResource( 4 )
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/options"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -61.5
+margin_top = -10.5
+margin_right = 61.5
+margin_bottom = 10.5
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = -3
+custom_constants/shadow_offset_y = 3
+custom_fonts/font = SubResource( 5 )
+text = "OPITIONS"
+
+[node name="exit" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 84.0
+margin_right = 140.0
+margin_bottom = 122.0
+rect_pivot_offset = Vector2( -1, 19 )
+custom_fonts/font = SubResource( 3 )
+icon = ExtResource( 2 )
+flat = true
+icon_align = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/exit"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -28.5
+margin_top = -10.5
+margin_right = 28.5
+margin_bottom = 10.5
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = -3
+custom_constants/shadow_offset_y = 3
+custom_fonts/font = SubResource( 5 )
+text = "EXIT"
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/start" to="." method="_on_start_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]

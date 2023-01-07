@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://cenas/cenario/Tronco.tscn" type="PackedScene" id=1]
+[ext_resource path="res://cenas/cenario/Copa_med.tscn" type="PackedScene" id=2]
+
+[node name="Pinheiro-grand" type="Node2D"]
+
+[node name="Tronco" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -5 )
+
+[node name="Copa-med" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -32 )
+scale = Vector2( 2, 2 )
